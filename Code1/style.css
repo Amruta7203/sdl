@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgba(79, 123, 255, 0.192);
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+.timetable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.timetable th,
+.timetable td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.timetable th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.timetable td:nth-child(7) {
+    font-weight: bold;
+}
+
+.timetable td:nth-child(1) {
+    font-weight: bold;
+    width: 150px;
+}

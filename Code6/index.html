@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Scientific Calculator</title>
+
+<script>
+function addToDisplay(value) {
+    document.calculator.display.value += value;
+}
+
+function calculate() {
+    try {
+        var result = eval(document.calculator.display.value);
+        document.calculator.display.value = result;
+    } catch (e) {
+        document.calculator.display.value = 'Error';
+    }
+}
+
+function clearDisplay() {
+    document.calculator.display.value = '';
+}
+
+function clearLast() {
+    var displayValue = document.calculator.display.value;
+    document.calculator.display.value = displayValue.substring(0, displayValue.length - 1);
+}
+
+function squareRoot() {
+    var value = document.calculator.display.value;
+    document.calculator.display.value = Math.sqrt(value);
+}
+
+function square() {
+    var value = document.calculator.display.value;
+    document.calculator.display.value = Math.pow(value, 2);
+}
+
+// function sin() {
+//     var value = document.calculator.display.value;
+//     document.calculator.display.value = Math.sin(value);
+// }
+
+// function cos() {
+//     var value = document.calculator.display.value;
+//     document.calculator.display.value = Math.cos(value);
+// }
+
+// function tan() {
+//     var value = document.calculator.display.value;
+//     document.calculator.display.value = Math.tan(value);
+// }
+</script>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.calculator {
+    width: 400px;
+    margin: 30px auto;
+    border: 5px solid #3498db;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+}
+
+.display {
+    width: 100%;
+    height: 50px;
+    text-align: right;
+    font-size: 24px;
+    padding: 10px;
+    border: none;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 5px;
+    padding: 10px;
+}
+
+.button {
+    width: 100%;
+    height: 75px;
+    font-size: 24px;
+    margin: 5px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    border: none;
+}
+
+.clear-button {
+    background-color: #e74c3c;
+}
+
+.equal-button {
+    background-color: #27ae60;
+}
+</style>
+</head>
+<body>
+<div class="calculator">
+    <form name="calculator">
+        <input class="display" name="display" readonly>
+        <div class="buttons">
+            <input class="button" type="button" value="7" onclick="addToDisplay('7')">
+            <input class="button" type="button" value="8" onclick="addToDisplay('8')">
+            <input class="button" type="button" value="9" onclick="addToDisplay('9')">
+            <input class="button" type="button" value="&#9003;" onclick="clearLast()">
+            <input class="button clear-button" type="button" value="C" onclick="clearDisplay()">
+            <input class="button" type="button" value="4" onclick="addToDisplay('4')">
+            <input class="button" type="button" value="5" onclick="addToDisplay('5')">
+            <input class="button" type="button" value="6" onclick="addToDisplay('6')">
+            <input class="button" type="button" value="+" onclick="addToDisplay('+')">
+            <input class="button" type="button" value="-" onclick="addToDisplay('-')">
+            <input class="button" type="button" value="1" onclick="addToDisplay('1')">
+            <input class="button" type="button" value="2" onclick="addToDisplay('2')">
+            <input class="button" type="button" value="3" onclick="addToDisplay('3')">
+            <input class="button" type="button" value="/" onclick="addToDisplay('/')">
+            <input class="button" type="button" value="*" onclick="addToDisplay('*')">
+            <input class="button" type="button" value="." onclick="addToDisplay('.')">
+            <input class="button" type="button" value="0" onclick="addToDisplay('0')">
+            <input class="button equal-button" type="button" value="=" onclick="calculate()"> 
+            <!-- <input class="button" type="button" value="sin" onclick="sin()">
+            <input class="button" type="button" value="cos" onclick="cos()"> -->
+            <input class="button" type="button" value="&#8730;" onclick="squareRoot()">
+            <input class="button" type="button" value="x&#178;" onclick="square()">
+            <input class="button" type="button" value="%" onclick="addToDisplay('%')">
+            <input class="button" type="button" value="^" onclick="addToDisplay('^')">
+            <input class="button" type="button" value="()" onclick="addToDisplay('()')">
+        </div>
+    </form>
+</div>
+</body>
+</html>
